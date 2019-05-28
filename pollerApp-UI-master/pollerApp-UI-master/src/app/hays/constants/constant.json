@@ -1,0 +1,64 @@
+{
+  "headings": [
+    "SN",
+    "Service",
+    "Region",
+    "Source",
+    "Process Type",
+    "Batch",
+    "Thread",
+    "Server",
+    "Schedule time",
+    "Status"
+  ],
+  "service": {
+    "NOTIFICATION": "Notification",
+    "APPCONTENT": "Application Content",
+    "SYSCONTENT": "System Content",
+    "TRAINING": "Training"
+  },
+  "region": {
+    "UK": "United Kingdom",
+    "FR": "FRANCE",
+    "IE": "IRELAND",
+    "BE":"Belgium",
+    "CA":"Canada",
+    "CZ":"Czech Republic",
+    "NL":"Netherlands",
+    "BR":"Brazil",
+    "AE":"United Arab Emirates",
+    "PT":"Portugal",
+    "ES":"Spain",
+    "LU":"Luxembourg",
+    "PL":"Poland",
+    "IT":"Italy",
+    "SK":"Slovakia",
+    "SE":"Sweden",
+    "DE":"Germany",
+    "AT":"Austria",
+    "CH":"Switzerland",
+    "HU":"Hungary",
+    "DK":"Denmark",
+    "RU":"Russia",
+    "MX":"Mexico",
+    "US":"USA",
+    "CL":"Chile",
+    "CO":"Colombia",
+    "VUS":"US-Veredus",
+    "RO":"Romania"
+  },
+  "source": {
+  "PS":"Peoplesoft",
+  "LR":"Liferay",
+  "UD":"Udemy"
+},
+  "processType": {
+    "00001":"Default",
+    "00002":"Secondary"
+  },
+  "serverPort": {
+    "1996": "Port 1",
+    "1998": "Port 2",
+    "1997": "Port 3"
+  }
+}

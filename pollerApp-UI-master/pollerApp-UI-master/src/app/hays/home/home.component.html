@@ -1,0 +1,114 @@
+<div style="text-align:left;width:500px;">
+  <h1>
+    Hays WSP Poller
+  </h1>
+<form [formGroup]="pollerform" (ngSubmit)="onSubmit()">
+  <table>
+    <tr>
+      <td *ngFor="let heading of headings">{{heading}}</td>
+    </tr>
+    <tr *ngFor="let field of fieldArray; let i = index" id="row_{{i}}">
+      <td>
+        <input type="checkbox" name="select_{{i}}" value="" id="checkBox_{{i}}" formControlName="selectChkbox">
+      </td>
+      <td>
+        <select name="service_{{i}}" id="service_{{i}}" formControlName="selectedService">
+          <option [ngValue]="null" disabled>Select service</option>
+          <option *ngFor="let service of services | keyvalue" value={{service.key}}>
+            {{service.value}}
+          </option>
+        </select>
+        <div *ngIf="submitted && f.selectedService.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedService.errors.required">Select a service</div>
+        </div>
+      </td>
+      <td>
+        <select name="region_{{i}}" id="region_{{i}}" formControlName="selectedRegion">
+          <option [ngValue]="null" disabled>Select country</option>
+          <option *ngFor="let country of region | keyvalue" value={{country.key}}>
+            {{country.value}}
+          </option>
+        </select>
+        <div *ngIf="submitted && f.selectedRegion.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedRegion.errors.required">Select a region</div>
+        </div>
+      </td>
+      <td>
+        <select name="source_{{i}}" id="source_{{i}}" formControlName="selectedSource">
+          <option [ngValue]="null" disabled>Select source</option>
+          <option *ngFor="let source of sources | keyvalue" value={{source.key}}>
+            {{source.value}}
+          </option>
+        </select>
+        <div *ngIf="submitted && f.selectedSource.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedSource.errors.required">Select a source</div>
+        </div>
+      </td>
+      <td>
+        <select name="processType_{{i}}" id="processType_{{i}}" formControlName="selectedProcessType">
+          <option [ngValue]="null" disabled>Select process type</option>
+          <option *ngFor="let processType of processTypes | keyvalue" value={{processType.key}}>
+            {{processType.value}}
+          </option>
+        </select>
+        <div *ngIf="submitted && f.selectedProcessType.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedProcessType.errors.required">Select a process type</div>
+        </div>
+      </td>
+
+      <!--<td>
+        <input type="number" maxlength="3" name="sequenceNum" min="1" value="1" id="sel5" formControlName="selectedSequenceNum">
+        <div *ngIf="submitted && f.selectedSequenceNum.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedSequenceNum.errors.required">Enter sequence number</div>
+        </div>
+      </td>-->
+      <td>
+        <input type="number" name="batch_{{i}}" min="1" max="10000" value="20" id="batch_{{i}}" formControlName="selectedBatch">
+        <div *ngIf="submitted && f.selectedBatch.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedBatch.errors.required">Enter batch number</div>
+        </div>
+      </td>
+      <td>
+        <input type="number" name="thread_{{i}}" class="form-control" min="1" value="2" id="thread_{{i}}" formControlName="selectedThread">
+        <div *ngIf="submitted && f.selectedThread.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedThread.errors.required">Enter thread count</div>
+        </div>
+      </td>
+      <td>
+        <!--<input type="text" name="server1" class="form-control" placeholder="Enter server IP" id="sel8" formControlName="selectedServer">-->
+        <select name="server_{{i}}" id="port_{{i}}" formControlName="selectedServer">
+          <option [ngValue]="null" disabled>Select Port</option>
+          <option *ngFor="let serverPort of serverPorts | keyvalue" value={{serverPort.key}}>
+            {{serverPort.value}}
+          </option>
+        </select>
+        <div *ngIf="submitted && f.selectedServer.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedServer.errors.required">Select server port</div>
+        </div>
+      </td>
+      <td>
+        <input type="number" name="schedule_{{i}}" class="form-control" min="1" value="5" id="time_{{i}}" formControlName="selectedSchedule">
+        <div *ngIf="submitted && f.selectedSchedule.errors" class="invalid-feedback">
+          <div *ngIf="f.selectedSchedule.errors.required">Enter time</div>
+        </div>
+      </td>
+      <td>
+        <input type="text" name="status_{{i}}" class="form-control" id="status_{{i}}"  formControlName="currentStatus">
+      </td>
+    </tr>
+<tr>
+  <td>
+    <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+  </td>
+  <td>
+    <button class="btn btn-default"  type="button" *ngIf="fieldArray.length > 1" (click)="deleteFieldValue(i)">Delete</button>
+  </td>
+</tr>
+  </table>
+  <div class="form-group">
+    <button class="btn btn-primary">Start</button>
+  </div>
+</form>
+
+</div>
+
